@@ -22,14 +22,14 @@ export const initCommandAction = async () => {
       );
     }
 
-    const dir = `./src/components/${name}`;
+    const dir = `./src/components`;
 
     //Create files with fs module
     if (content) {
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
-      fs.writeFile(dir, content, (err: any) => {
+      fs.writeFile(dir + "/" + name, content, (err: any) => {
         if (err) {
           console.log(err);
         }
